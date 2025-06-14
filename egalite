@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Égalité en jeu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fefefe;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #e91e63;
+    }
+    .level {
+      display: none;
+    }
+    .level.active {
+      display: block;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎮 Égalité en jeu</h1>
+  <p>Clique sur les bonnes réponses pour passer au niveau suivant !</p>
+
+  <!-- Niveli 1 -->
+  <div class="level active" id="level1">
+    <h2>Niveau 1 : Les jouets</h2>
+    <p>Quel jouet est pour les filles ?</p>
+    <button onclick="wrongAnswer()">Poupée</button>
+    <button onclick="wrongAnswer()">Cuisine</button>
+    <button onclick="correctAnswer(2)">Tous les jouets !</button>
+  </div>
+
+  <!-- Niveli 2 -->
+  <div class="level" id="level2">
+    <h2>Niveau 2 : Les couleurs</h2>
+    <p>Quelle couleur est pour les garçons ?</p>
+    <button onclick="wrongAnswer()">Bleu</button>
+    <button onclick="wrongAnswer()">Vert</button>
+    <button onclick="correctAnswer(3)">Toutes les couleurs !</button>
+  </div>
+
+  <!-- Niveli 3 -->
+  <div class="level" id="level3">
+    <h2>Niveau 3 : Les métiers</h2>
+    <p>Qui peut devenir ingénieur ?</p>
+    <button onclick="correctAnswer(4)">Fille ou garçon</button>
+    <button onclick="wrongAnswer()">Seulement garçon</button>
+    <button onclick="wrongAnswer()">Seulement fille</button>
+  </div>
+
+  <!-- Fituese -->
+  <div class="level" id="level4">
+    <h2>🎉 Bravo !</h2>
+    <p class="message">Tu as prouvé que l’égalité, c’est possible à chaque étape de la vie !</p>
+  </div>
+
+  <script>
+    function correctAnswer(nextLevel) {
+      document.querySelectorAll('.level').forEach(lvl => lvl.classList.remove('active'));
+      document.getElementById('level' + nextLevel).classList.add('active');
+    }
+
+    function wrongAnswer() {
+      alert("Essaie encore ! Rappelle-toi : l'égalité signifie pas de stéréotypes !");
+    }
+  </script>
+
+</body>
+</html>
